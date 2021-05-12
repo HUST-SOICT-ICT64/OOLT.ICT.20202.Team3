@@ -2,16 +2,19 @@ package hust.soict.ict.quinemccluskey.model.minterm;
 
 public abstract class Implicant {
 
-	protected String minterm; 			// 0 	3 	 5
-	protected String binaryExpression; 	// 0000 0011 0101
+	protected String implicant;
+	protected String binaryExpression;
 
 	// Getters and setters
-	public String getMinterm() {
-		return minterm;
+	public String getImplicant() {
+		return implicant;
 	}
 
-	public void setMinterm(String minterm) {
-		this.minterm = minterm;
+	public void setImplicant(String implicant) {
+		this.implicant = implicant;
+		if(this instanceof Minterm) {
+			((Minterm) this).toBinaryExpression();
+		}
 	}
 	
 	public String getBinaryExpression() {
@@ -19,40 +22,46 @@ public abstract class Implicant {
 	}
 	
 	// Constructors
-	Implicant(String minterm) {
-		this.minterm = minterm;
+	public Implicant(String implicant) {
+		this.implicant = implicant;
+		if(this instanceof Minterm) {
+			((Minterm) this).toBinaryExpression();
+		}
+	}
+
+	public Implicant(String implicant, String binaryExpression) {
+		this.implicant = implicant;
+		this.binaryExpression = binaryExpression;
 	}
 	
 	// Methods
-	public boolean parityCheck(Minterm minterm) {
-		String e2[] = this.binaryExpression.split("\\s");
-		String e1[] = minterm.getBinaryExpression().split("\\s");
+	public boolean parityCheck(Implicant implicant) {
+		String e1 = this.binaryExpression;
+		String e2 = implicant.binaryExpression;
 		int countDiff = 0;
 		
-		// 1st loop for checking the length of the argument (split by white space)
-		// 2nd loop for checking the length of original input (split by white space)
-		// 3rd loop for checking the differences between each character of the 2 split element
-		
-		outerloop:
-		for (int i = 0; i < e1.length; i++) {						
-			for (int j = 0; j < e2.length; j++) {					
-				for (int k = 0; k < e1[i].length(); k++) {
-					
-					if (e1[i].charAt(k) != e2[k].charAt(k)) {
-						countDiff += 1;
-					}
-					
-					if (countDiff == 1) {
-						break outerloop;			// break with a label of the outer loop
-					} else {
-						countDiff = 0;
-					}
-					
-				}
-			}	
+		for(int i = 0; i < e1.length(); i++) {
+			if(e1.charAt(i) != e2.charAt(i)) {
+				countDiff++;
+			}
 		}
+
+		return countDiff == 1;
 		
-		return false;
-		
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Implicant) {
+			Implicant tempImplicant = (Implicant)obj;
+			
+			if (binaryExpression.equals(tempImplicant.binaryExpression)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 	}
 }
