@@ -4,24 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hust.soict.ict.quinemccluskey.model.Variable;
-import hust.soict.ict.quinemccluskey.model.minterm.Minterm;
+import hust.soict.ict.quinemccluskey.model.minterm.CombinedImplicant;
+import hust.soict.ict.quinemccluskey.model.minterm.Implicant;
+import hust.soict.ict.quinemccluskey.utils.Cache;
 
 public class Column {
-	private List<Minterm> implicants;
+	private List<Implicant> implicants;
 	
 	public Column() {
-		implicants = new ArrayList<Minterm>();	
+		implicants = new ArrayList<Implicant>();	
 	}
 
-	public void addMinterm(Minterm minterm) {
-		implicants.add(minterm);
+	public void addImplicant(Implicant implicant) {
+		implicants.add(implicant);
 	}
 
-	public void addMinterm(List<Minterm> minterms) {
-		implicants.addAll(minterms);
+	public void addImplicant(List<Implicant> implicants) {
+		implicants.addAll(implicants);
 	}
 
-	public Minterm get(int index) {
+	public Implicant get(int index) {
 		return implicants.get(index);
 	}
 
@@ -31,9 +33,9 @@ public class Column {
 
 	public boolean ableToGenerateNextCol() {
 		for(int i = 0; i < size(); i++) {
-			Minterm first = implicants.get(i);
+			Implicant first = implicants.get(i);
 			for(int j = i + 1; j < size(); j++) {
-				Minterm second = implicants.get(j);		
+				Implicant second = implicants.get(j);		
 				if(first.equals(second)) {
 					return true;
 				}
@@ -42,31 +44,32 @@ public class Column {
 		return false;
 	}
 
-	public List<Minterm> generateNextColumn() {
-		List<Minterm> mintermsOfNextCol = new ArrayList<Minterm>();
+	public List<Implicant> generateNextColumn() {
+		List<Implicant> implicantsOfNextCol = new ArrayList<Implicant>();
 		for(int i = 0; i < implicants.size(); i++) {
-			Minterm first = implicants.get(i);
+			Implicant first = implicants.get(i);
 			for(int j = i + 1; j < implicants.size(); j++) {
-				Minterm second = implicants.get(j);		
+				Implicant second = implicants.get(j);		
 				if(first.parityCheck(second) == true) {
-					// merge 2 minterms
-					Minterm possibleMinterm = mergeTwoMinterms(first, second);
+					// merge 2 implicants
+					Implicant possibleImplicant = mergeTwoImplicants(first, second);
+
 					// check if the combination exists yet
-					if(AllMinterms.exist(possibleMinterm)) {
+					if(Cache.exists(possibleImplicant)) {
 						continue;
 					}
-					// if not existed yet
-					mintermsOfNextCol.add(possibleMinterm);
-					allMinterms.add(possibleMinterm);		// this is a static function of 
-															// class AllMinterms
+					// if not existed yet then add to cache memory to mark it appearance
+					Cache.add(possibleImplicant);
+
+					implicantsOfNextCol.add(possibleImplicant);
 				}
 			}
 		}
-		return null;
+		return implicantsOfNextCol;
 	}
 
-	public Minterm mergeTwoMinterms(Minterm first, Minterm second) {
-		String minterm = first.getMinterm() + second.getMinterm();
+	public Implicant mergeTwoImplicants(Implicant first, Implicant second) {
+		String implicant = first.getImplicant() + second.getImplicant();
 		StringBuffer binaryExpression = new StringBuffer();
 		for(int i = 0; i < Variable.numberDigits; i++) {
 			char bit = first.getBinaryExpression().charAt(i);
@@ -77,6 +80,6 @@ public class Column {
 			}
 			binaryExpression.append(bit);
 		}
-		return new Minterm(minterm, binaryExpression.toString()); 
+		return new CombinedImplicant(implicant, binaryExpression.toString()); 
 	}
 }
