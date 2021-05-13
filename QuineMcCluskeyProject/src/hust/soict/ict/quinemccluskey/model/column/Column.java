@@ -15,12 +15,16 @@ public class Column {
 		implicants = new ArrayList<Implicant>();	
 	}
 
+	public Column(List<Implicant> implicants) {
+		this.implicants = implicants;
+	}
+
 	public void addImplicant(Implicant implicant) {
 		implicants.add(implicant);
 	}
 
 	public void addImplicant(List<Implicant> implicants) {
-		implicants.addAll(implicants);
+		this.implicants.addAll(implicants);
 	}
 
 	public Implicant get(int index) {
@@ -69,13 +73,13 @@ public class Column {
 	}
 
 	public Implicant mergeTwoImplicants(Implicant first, Implicant second) {
-		String implicant = first.getImplicant() + second.getImplicant();
+		String implicant = first.getImplicant() + " " + second.getImplicant();
 		StringBuffer binaryExpression = new StringBuffer();
 		for(int i = 0; i < Variable.numberDigits; i++) {
 			char bit = first.getBinaryExpression().charAt(i);
 			char firstBit = first.getBinaryExpression().charAt(i);
 			char secondBit =  second.getBinaryExpression().charAt(i);
-			if(firstBit == secondBit) {
+			if(firstBit != secondBit) {
 				bit = '-';	
 			}
 			binaryExpression.append(bit);
