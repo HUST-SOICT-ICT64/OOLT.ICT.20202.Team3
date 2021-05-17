@@ -10,6 +10,7 @@ import hust.soict.ict.quinemccluskey.utils.Cache;
 
 public class Column {
 	private List<Implicant> implicants;
+	private Cache<Implicant> cache = new Cache<Implicant> ();
 	
 	public Column() {
 		implicants = new ArrayList<Implicant>();	
@@ -59,11 +60,11 @@ public class Column {
 					Implicant possibleImplicant = mergeTwoImplicants(first, second);
 
 					// check if the combination exists yet
-					if(Cache.exists(possibleImplicant)) {
+					if(cache.exists(possibleImplicant)) {
 						continue;
 					}
 					// if not existed yet then add to cache memory to mark it appearance
-					Cache.add(possibleImplicant);
+					cache.add(possibleImplicant);
 
 					implicantsOfNextCol.add(possibleImplicant);
 				}
