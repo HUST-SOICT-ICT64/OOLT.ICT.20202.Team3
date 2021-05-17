@@ -4,7 +4,7 @@ public abstract class Implicant {
 
 	protected String implicant;
 	protected String binaryExpression;
-	private boolean possiblePI = false;
+	private boolean possiblePI = true;
 
 	// Getters and setters
 	public String getImplicant() {

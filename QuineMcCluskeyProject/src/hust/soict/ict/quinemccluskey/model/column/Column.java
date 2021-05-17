@@ -59,6 +59,9 @@ public class Column {
 					// merge 2 implicants
 					Implicant possibleImplicant = mergeTwoImplicants(first, second);
 
+					first.setPossiblePI(false);	// and this one will not be a PI
+					second.setPossiblePI(false);
+
 					// check if the combination exists yet
 					if(cache.exists(possibleImplicant)) {
 						continue;
