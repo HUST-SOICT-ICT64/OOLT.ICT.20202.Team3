@@ -4,6 +4,7 @@ public abstract class Implicant {
 
 	protected String implicant;
 	protected String binaryExpression;
+	private boolean possiblePI = false;
 
 	// Getters and setters
 	public String getImplicant() {
@@ -19,6 +20,14 @@ public abstract class Implicant {
 	
 	public String getBinaryExpression() {
 		return binaryExpression; 
+	}
+
+	public boolean isPI() {
+		return this.possiblePI;
+	}
+
+	public void setPossiblePI(boolean b) {
+		this.possiblePI = b;
 	}
 	
 	// Constructors
