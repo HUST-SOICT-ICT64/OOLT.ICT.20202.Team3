@@ -4,14 +4,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import hust.soict.ict.quinemccluskey.controller.outputcontroller.OutputController;
+import hust.soict.ict.quinemccluskey.model.column.Column;
 import hust.soict.ict.quinemccluskey.model.minterm.Implicant;
 import hust.soict.ict.quinemccluskey.model.minterm.Minterm;
+import hust.soict.ict.quinemccluskey.model.table.IntermediateTable;
+import hust.soict.ict.quinemccluskey.model.table.PITable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 public class InputController extends Controller {
 	protected String homeURL = "/hust/soict/ict/quinemccluskey/view/HomeScreen.fxml";
@@ -45,7 +54,7 @@ public class InputController extends Controller {
      * 
      */
     @FXML
-    void submitButtonPressed(ActionEvent event) {
+    void submitButtonPressed(ActionEvent event) throws IOException {
     	List<Implicant> minterms = new ArrayList<Implicant>();
     	
     	if (SOPButton.isSelected()) {
@@ -61,10 +70,27 @@ public class InputController extends Controller {
     			}
     		}
     	}
+    	Column column = new Column(minterms);
     	
-    	for (Implicant m : minterms) {
-    		System.out.println(m.getImplicant() + " " + m.getBinaryExpression());
-    	}
+    	IntermediateTable table = new IntermediateTable(column);
+    	table.generate();
+    	
+    	PITable primeImplicantTable = new PITable(table);
+    	primeImplicantTable.generate();
+    	
+    	FXMLLoader loader = new FXMLLoader(getClass().
+    			getResource("/hust/soict/ict/quinemccluskey/view/Output.fxml"));
+        
+    	Parent root = loader.load();
+
+        OutputController outputcontroller = loader.getController();
+        outputcontroller.setIntermediateTable(table);
+        outputcontroller.setPITable(primeImplicantTable);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     @FXML

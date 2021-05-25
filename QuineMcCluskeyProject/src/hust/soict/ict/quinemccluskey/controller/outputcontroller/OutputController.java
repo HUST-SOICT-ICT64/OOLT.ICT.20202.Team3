@@ -30,8 +30,8 @@ public class OutputController {
             Label intermediatelbl = new Label();
             for(int j = 0; j < table.getColumnAtPosition(i).size(); j ++) {
                 intermediatelbl.setText(intermediatelbl.getText() + "\n" 
-		            + "(" + table.getColumnAtPosition(i).get(j).getImplicant() + ") " 
-		            + table.getColumnAtPosition(i).get(j).getBinaryExpression());
+		            + "(" + table.getColumnAtPosition(i).getImplicantAt(j).getImplicant() + ") " 
+		            + table.getColumnAtPosition(i).getImplicantAt(j).getBinaryExpression());
             }
             intermediatelbl.setFont(Font.font(intermediatelbl.getFont().getName(), 
             						FontWeight.BOLD, 
