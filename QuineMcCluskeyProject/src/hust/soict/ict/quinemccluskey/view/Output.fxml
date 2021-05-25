@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="1024.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hust.soict.ict.quinemccluskey.controller.outputcontroller.OutputController">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Label">
+               <font>
+                  <Font size="49.0" />
+               </font>
+            </Label>
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <ButtonBar prefHeight="40.0" prefWidth="200.0">
+              <buttons>
+                  <Button mnemonicParsing="false" text="3-variable" />
+                <Button mnemonicParsing="false" text="4-variable" />
+              </buttons>
+               <HBox.margin>
+                  <Insets bottom="50.0" />
+               </HBox.margin>
+            </ButtonBar>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="400.0" prefWidth="540.0">
+               <children>
+                  <GridPane fx:id="intermediateTable" gridLinesVisible="true" prefHeight="400.0" prefWidth="1258.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="-Infinity" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="150.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" prefWidth="150.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="150.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="334.0" minHeight="10.0" prefHeight="334.0" valignment="TOP" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="176.0" prefWidth="357.0" text="Col 1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="176.0" prefWidth="357.0" text="Col 2" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="176.0" prefWidth="357.0" text="Col 3" GridPane.columnIndex="2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="176.0" prefWidth="357.0" text="Col 4" GridPane.columnIndex="3">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </GridPane>
+               </children>
+            </HBox>
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <GridPane fx:id="primeImplicantTable" gridLinesVisible="true" prefHeight="60.0" prefWidth="120.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="55.0" minWidth="10.0" prefWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="46.0" text="0" GridPane.columnIndex="1" />
+                  <Label alignment="CENTER" prefHeight="78.0" prefWidth="92.0" text="1" GridPane.columnIndex="2" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="2" GridPane.columnIndex="3" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="3" GridPane.columnIndex="4" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="4" GridPane.columnIndex="5" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="5" GridPane.columnIndex="6" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="6" GridPane.columnIndex="7" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="7" GridPane.columnIndex="8" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="8" GridPane.columnIndex="9" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="9" GridPane.columnIndex="10" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="10" GridPane.columnIndex="11" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="11" GridPane.columnIndex="12" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="12" GridPane.columnIndex="13" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="13" GridPane.columnIndex="14" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="14" GridPane.columnIndex="15" />
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="46.0" text="15" GridPane.columnIndex="16" />
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </GridPane>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefHeight="813.0" prefWidth="634.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <GridPane fx:id="makeEquationTable" gridLinesVisible="true">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="54.0" prefWidth="245.0" text="EPI">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="30.0" prefWidth="190.0" text="Binary Expression" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="61.0" prefWidth="242.0" text="Character Equation" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="20.0" />
+               </VBox.margin>
+            </GridPane>
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+      <Label fx:id="finalEquation" text="Label" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="50.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+   </bottom>
+</BorderPane>
