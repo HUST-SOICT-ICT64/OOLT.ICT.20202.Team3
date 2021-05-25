@@ -20,7 +20,7 @@ public class ColumnTest {
     
         System.out.println("Implicant and their Binary Expression");
         for(int i = 0; i < firstColumn.size(); i++) {
-            Implicant im = firstColumn.get(i);
+            Implicant im = firstColumn.getImplicantAt(i);
             System.out.println(im.getImplicant() + " " + im.getBinaryExpression());
         }
 
@@ -33,7 +33,7 @@ public class ColumnTest {
             if(nextCol.size() != 0) {
                 System.out.println("Stage " + stage);
                 for(int i = 0; i < nextCol.size(); i++) {
-                    Implicant im = nextCol.get(i);
+                    Implicant im = nextCol.getImplicantAt(i);
                     System.out.println(im.getImplicant() + " " + im.getBinaryExpression());
                 }
                 stage++;

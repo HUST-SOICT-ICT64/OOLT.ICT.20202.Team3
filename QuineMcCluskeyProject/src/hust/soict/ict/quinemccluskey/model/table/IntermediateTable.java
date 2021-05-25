@@ -17,8 +17,8 @@ public class IntermediateTable implements Table {
     public List<Implicant> getPrimeImplicants() {
         for(Column col : columns) {
             for(int i = 0; i < col.size(); i++) {
-                if(col.get(i).isPI()) {
-                    this.primeImplicants.add(col.get(i));
+                if(col.getImplicantAt(i).isPI()) {
+                    this.primeImplicants.add(col.getImplicantAt(i));
                 }
             }
         }
@@ -47,10 +47,18 @@ public class IntermediateTable implements Table {
         for(Column c : columns) {
             System.out.println("Column " + j);
             for(int i = 0; i < c.size(); i++) {
-                System.out.println(c.get(i).getImplicant() + " " + c.get(i).getBinaryExpression());
+                System.out.println(c.getImplicantAt(i).getImplicant() + " " + c.getImplicantAt(i).getBinaryExpression());
             }
             j++;
         }
     }
+
+	public int size() {
+		return columns.size();
+	}
+
+	public Column getColumnAtPosition(int index) {
+		return columns.get(index);
+	}
 
 }

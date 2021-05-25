@@ -27,8 +27,12 @@ public class Column {
 	public void addImplicant(List<Implicant> implicants) {
 		this.implicants.addAll(implicants);
 	}
+	
+	public List<Implicant> getImplicants() {
+		return this.implicants;
+	}
 
-	public Implicant get(int index) {
+	public Implicant getImplicantAt(int index) {
 		return implicants.get(index);
 	}
 
@@ -36,7 +40,7 @@ public class Column {
 		return implicants.size();
 	}
 
-	public boolean ableToGenerateNextCol() {
+	private boolean ableToGenerateNextCol() {
 		for(int i = 0; i < size(); i++) {
 			Implicant first = implicants.get(i);
 			for(int j = i + 1; j < size(); j++) {
