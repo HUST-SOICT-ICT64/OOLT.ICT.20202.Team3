@@ -26,6 +26,9 @@ public class OutputController extends Controller {
     
     @FXML
     private Label finalEquation;
+    
+    @FXML
+    private Label typeLabel;
 
     public void setIntermediateTable(IntermediateTable table) {
         for(int i = 0; i < table.size(); i ++) {
@@ -59,8 +62,8 @@ public class OutputController extends Controller {
 									14));
     		
     		primeImplicantTable.add(implicantLabel, 0, i + 1);
-    		 GridPane.setHalignment(implicantLabel, HPos.CENTER);
-             GridPane.setValignment(implicantLabel, VPos.TOP);
+			GridPane.setHalignment(implicantLabel, HPos.CENTER);
+	        GridPane.setValignment(implicantLabel, VPos.TOP);
 
 
     		String[] minterms = table.getPrimeImplicants().get(i).
