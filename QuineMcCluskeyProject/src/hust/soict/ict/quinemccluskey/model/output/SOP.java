@@ -7,7 +7,7 @@ import hust.soict.ict.quinemccluskey.model.table.PITable;
 import hust.soict.ict.quinemccluskey.utils.FunctionConverter;
 import hust.soict.ict.quinemccluskey.utils.Variable;
 
-public class SOP extends OutputFunction {
+public class SOP extends CanonicalForm {
 
 	@Override
 	public void generate(PITable table, List<Implicant> minterms) {

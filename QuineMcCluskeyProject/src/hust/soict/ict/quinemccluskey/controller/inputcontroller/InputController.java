@@ -9,6 +9,7 @@ import hust.soict.ict.quinemccluskey.controller.outputcontroller.OutputControlle
 import hust.soict.ict.quinemccluskey.model.column.Column;
 import hust.soict.ict.quinemccluskey.model.minterm.Implicant;
 import hust.soict.ict.quinemccluskey.model.minterm.Minterm;
+import hust.soict.ict.quinemccluskey.model.output.CanonicalForm;
 import hust.soict.ict.quinemccluskey.model.output.OutputFunction;
 import hust.soict.ict.quinemccluskey.model.output.POS;
 import hust.soict.ict.quinemccluskey.model.output.SOP;
@@ -61,7 +62,7 @@ public class InputController extends Controller {
     void submitButtonPressed(ActionEvent event) throws IOException {
     	List<Implicant> minterms = new ArrayList<Implicant>();
     	
-    	OutputFunction out;
+    	CanonicalForm out;
 
     	if (SOPButton.isSelected()) {
     		for (int i = 0; i < radioButton.length; i++) {
