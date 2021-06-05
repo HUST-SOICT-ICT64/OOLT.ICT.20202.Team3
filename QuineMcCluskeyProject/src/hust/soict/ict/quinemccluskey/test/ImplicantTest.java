@@ -3,8 +3,8 @@ package hust.soict.ict.quinemccluskey.test;
 
 import java.util.Scanner;
 
-import hust.soict.ict.quinemccluskey.model.Variable;
 import hust.soict.ict.quinemccluskey.model.minterm.Minterm;
+import hust.soict.ict.quinemccluskey.utils.Variable;
 
 public class ImplicantTest {
 

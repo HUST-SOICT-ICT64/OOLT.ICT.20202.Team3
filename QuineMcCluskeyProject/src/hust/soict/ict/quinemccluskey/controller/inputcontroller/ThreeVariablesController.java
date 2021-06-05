@@ -1,6 +1,6 @@
 package hust.soict.ict.quinemccluskey.controller.inputcontroller;
 
-import hust.soict.ict.quinemccluskey.model.Variable;
+import hust.soict.ict.quinemccluskey.utils.Variable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

@@ -1,6 +1,6 @@
 package hust.soict.ict.quinemccluskey.model.minterm;
 
-import hust.soict.ict.quinemccluskey.model.Variable;
+import hust.soict.ict.quinemccluskey.utils.Variable;
 
 public class Minterm extends Implicant {
 

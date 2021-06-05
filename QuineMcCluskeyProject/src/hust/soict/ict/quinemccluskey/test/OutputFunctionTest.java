@@ -2,7 +2,6 @@ package hust.soict.ict.quinemccluskey.test;
 
 import java.util.ArrayList;
 
-import hust.soict.ict.quinemccluskey.model.Variable;
 import hust.soict.ict.quinemccluskey.model.column.Column;
 import hust.soict.ict.quinemccluskey.model.minterm.CombinedImplicant;
 import hust.soict.ict.quinemccluskey.model.minterm.Implicant;
@@ -13,6 +12,7 @@ import hust.soict.ict.quinemccluskey.model.output.SOP;
 import hust.soict.ict.quinemccluskey.model.table.IntermediateTable;
 import hust.soict.ict.quinemccluskey.model.table.PITable;
 import hust.soict.ict.quinemccluskey.model.table.Table;
+import hust.soict.ict.quinemccluskey.utils.Variable;
 
 public class OutputFunctionTest{
 	public static void main(String[] args) {

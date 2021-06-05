@@ -2,10 +2,10 @@ package hust.soict.ict.quinemccluskey.model.output;
 
 import java.util.List;
 
-import hust.soict.ict.quinemccluskey.model.Variable;
 import hust.soict.ict.quinemccluskey.model.minterm.Implicant;
 import hust.soict.ict.quinemccluskey.model.table.PITable;
 import hust.soict.ict.quinemccluskey.utils.FunctionConverter;
+import hust.soict.ict.quinemccluskey.utils.Variable;
 
 public class POS extends OutputFunction{
 
